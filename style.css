@@ -8,34 +8,30 @@
     --clr-grey: rgb(236, 235, 235);
     --clr-peach: #FFC29E;
 };
+
 /* import arabic fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300&family=Rubik:ital,wght@1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300&family=Markazi+Text&family=Rubik:wght@300;400&display=swap');
 /* mobile first */
-
+/* start of header */
 body {
     direction: rtl;
     box-sizing: border-box;
-    font-family:'Times New Roman', Times, serif;
-    
 }
 header {
-    
+    font-family:"RubiK",'Times New Roman', Times, serif; 
     background-color: var(--clr-grey);
 }
 .nav-bar {
-    font-family:"RubiK",'Times New Roman', Times, serif;
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-start;
     margin-bottom: 1.5rem;  
 }
-.nav-bar div:hover {
-   /* change the color later */
+.nav-bar p:hover {
    color: var(--clr-blue);
 }
-.nav-bar div {
+.nav-bar p, .nav-bar div {
     margin: 0.6rem 0.6rem;
     padding: 0.3rem 0;
 }
@@ -51,21 +47,24 @@ header {
     border: solid 1px var(--clr-peach);
 }
 .nav-bar #logo {
+    background-image: url(./pics/logo2.jpg);
+    left: 0px;
     position: absolute;
     margin-left: 0.4rem;
     padding: 0;
-    left: 0px;
-    background-image: url(./pics/logo2.jpg);
     width: 2rem;
     height: 2rem;
     border: white 1px solid;
     border-radius: 2rem;
     background-size: 2rem 2.5rem;
+    transition: transform 1000ms;
+}
+.nav-bar #logo:hover {
+    transform: rotateX(180deg);
 }
 .search-bar {
     display: flex;
     margin-left: 6px;
-    
 }
 #search {
     width: fit-content;
@@ -97,10 +96,12 @@ header {
   border-bottom: grey solid 2px;
   box-shadow: 0 2px 5px grey;
 }
-.head-txt {
-    /* add font */
-    font-family:'Markazi Text',"RubiK",'Times New Roman', Times, serif;
+.head-txt p:first-of-type {
     text-align: end;
+}
+.head-txt p:nth-child(2){
+    text-align: end;
+    margin: 0;
 }
 .head-txt p:nth-child(1) {
     font-weight: bolder;
@@ -108,14 +109,23 @@ header {
 .head-txt  p {
   width: 25ch;
 }
+
 /* make responsive for medium devices  */
-@media screen and (min-width:576px) {
-    .nav-bar div {
+@media screen and (min-width:576px) and (max-width:1200px){
+    .nav-bar p, .nav-bar div {
         margin: 1rem 0.7rem;
         padding: 0.3rem 0;
+        font-size: larger;
     }
     .nav-bar #logo {
         margin-left: 0.7rem;
+        width: 2.7rem;
+        height: 2.7rem;
+        background-size: 2.7rem 2.7rem;
+        transition: transform 1s;
+    }
+    .nav-bar #logo:hover {
+        transform: rotateX(180deg);
     }
     .search-bar {
         margin-left: 0.7rem;
@@ -128,10 +138,13 @@ header {
         justify-content: space-evenly;
     }
     .head-pic {
-
-    width: 17rem;
-    height: 13rem;
-    background-size: 17rem 13rem;
+        width: 17rem;
+        height: 13rem;
+        background-size: 17rem 13rem;
+        transition: transform 500ms;
+    }
+    .head-pic:hover {
+        transform: scale(1.1, 1.1);
     }
     .head-txt {
         font-size: larger;
@@ -139,6 +152,270 @@ header {
 }
 
 /* make responsive for extra large devices*/
-@media screen and () {
+@media screen and (min-width:1201px) {
+    .nav-bar p, .nav-bar div {
+        margin: 1.5rem 1rem;
+        padding: 0.4rem 0;    
+    }
+    #home {
+        text-align: center;
+        margin-right: 2.5rem;
+    }
+    .nav-bar p {
+        font-size:x-large;
+    }
+    .nav-bar #logo {
+        margin-left: 2rem;
+        width: 3.4rem;
+        height: 3.4rem;
+        background-size: 3.4rem 3.7rem;
+        transition: transform 1s;
+    }
+    .nav-bar #logo:hover {
+        transform: rotateX(180deg);
+    }
+    .search-bar {
+        margin-left: 0.7rem;
+        justify-content: center; 
+    }
+    #search {
+        width:55%;
+        height: 3rem;
+        padding: 0.5rem;
+        border-radius: 2rem;
+    }
+    #search::placeholder {
+        font-size: x-large;
+    }
+    .search-bar i {
+        top: 0.9rem;
+        right: 2rem;
+        font-size: larger;
+      }
+    .head-pic {
+        width: 20rem;
+        height: 17rem;
+        background-size: 20rem 17rem;
+        transition: transform 500ms;
+    }
+    .head-pic:hover {
+        transform: scale(1.1, 1.1);
+    }
+    .head-txt {
+        font-size:xx-large;
+    }
+
+}
+
+/* end of header */
+/* start of section (main body) */
+section {
+    font-family:"RubiK",'Times New Roman', Times, serif;
+    padding: 1rem;
+    height: fit-content;
+}
+section p {
+    direction: rtl;
+}
+.one, .two, .three {
+  padding: 5%;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  border: solid 2px rgb(195, 195, 195) ;
+}
+.div-one-img, .div-two-img, .div-three-img {
+  background-image: url(./pics/section-img5.jpg);
+  width: 11rem;
+  height: 10rem;
+  background-size: 11rem 10rem;
+  background-repeat: no-repeat;
+  border: var(--clr-grey) solid 0.5px;
+  border-radius: 1rem;
+  transition: transform 500ms;
+}
+.div-one-img:hover, .div-two-img:hover, .div-three-img:hover {
+    transform: scale(1.1, 1.1);  
+}
+/* add hover to buttons */
+
+
+#div-one-btn, #div-two-btn, #div-three-btn {
+    display: block;
+    grid-column: 2 / 3;
+    width: fit-content;
+    justify-self: end;
+    border: white solid 3px;
+    color:white;
+    background-color: var(--clr-blue);
+    border-radius: 1rem;
+    padding: 0.3rem 0.8rem;
+    transition: transform 300ms;
+}
+#div-one-btn:hover, #div-two-btn:hover, #div-three-btn:hover {
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
+}
+.div-two-img {
+    background-image: url(./pics/section-img6.jpg);
+    filter: saturate(110%);
+    filter:contrast(110%);
+  }
+.div-three-img {
+    background-image: url(./pics/section-img.jpg);
+    filter: brightness(70%); 
+}
+@media screen and (min-width:576px) and (max-width:1200px) {
+    section p {
+        font-size: larger;
+    }
+    section div button:nth-child(3) {
+        font-size: larger;
+    }
+    .div-one-img, .div-two-img, .div-three-img {
+        width: 13rem;
+        height: 12rem;
+        background-size: 13rem 12rem;  
+    }
+}
+
+@media screen and (min-width:1201px) {
+    .div-one-img, .div-two-img, .div-three-img {
+        width: 15rem;
+        height: 14rem;
+        background-size: 15rem 14rem;  
+    }
+    section div button:nth-child(3) {
+        font-size: x-large;   
+    }
+    section p {
+        font-size: xx-large;
+    }
+}
+
+/* end of section */
+
+/* start of footer */
+footer {
+    font-family:"RubiK",'Times New Roman', Times, serif; 
+    font-size: larger;  
+}
+footer > .footer-container {
+    background-color: var(--clr-grey);
+    direction: rtl;
+    width: 100%;
+}
+
+footer div {
+    float: right;
+    width: 25%;
+    padding:0 3% ;
+}
+footer p:nth-child(1) {
+    font-weight: bolder;
+}
+footer p:nth-child(1):hover {
+  color: black;
+  cursor: not-allowed;
+}
+footer p:hover {
+  color: var(--clr-blue);
+  cursor:pointer;
+}
+footer div:nth-child(4) {
+    clear: right;
+    width: fit-content;
+}
+footer div:last-child {
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;  
+}
+.icon-container {
+    display: flex;
+    gap: 2rem;
+    width: fit-content;   
+}
+#media-txt {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    font-size: x-large;
+}
+
+#insta, #tele, #whats {
+    background-image: url(./pics/instagram-icon-33470.png);
+    margin-bottom: 1rem;
+    padding: 0;
+    width: 1.8rem;
+    height: 1.8rem;
+    background-size: 1.8rem 1.8rem;
+    background-repeat: no-repeat;
+    transition: transform 500ms;
+}
+#insta:hover, #tele:hover, #whats:hover {
+  transform: scale(1.2, 1.2);
+  cursor: pointer;
+}
+#tele {
+    background-image: url(./pics/telegram-logo-944.png);  
+}
+#whats {
+    background-image: url(./pics/whatsapp-logo-png-2263.png);
+    width: 2.2rem;
+    height: 2.2rem;
+    background-size: 2.2rem 2.2rem;
+    position: relative;
+    bottom: 0.2rem;
+}
+
+/* make the footer responsive */
+
+@media screen and (min-width:576px) and (max-width:1200px) {
+    .footer-container {
+        font-size: large;
+    }
+    
+    footer div {
+        float: right;
+        width: fit-content;
+        padding-right:3% ;
+    }
+}
+@media screen and (min-width:1201px) {
+    .footer-container {
+        font-size: x-large;
+    }
+    
+    #media-txt {
+        font-size: xx-large;
+        margin-left: 0.5rem;
+    }
+    .icon-container {
+        gap: 2.5rem;
+    }
+    #insta, #tele, #whats {
+        
+        width: 2.2rem;
+        height: 2.2rem;
+        background-size: 2.2rem 2.2rem;
+        background-repeat: no-repeat;
+        transition: transform 500ms;
+    }
+    #whats {
+        width: 2.6rem;
+        height: 2.6rem;
+        background-size: 2.8rem 2.8rem;
+        position:relative;
+        bottom:0.3rem ;
+    }
+    footer div {
+        float: right;
+        width: fit-content;
+        padding:0 4% ;
+    }
 
 }
